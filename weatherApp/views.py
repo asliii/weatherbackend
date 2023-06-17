@@ -14,7 +14,6 @@ class UserViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=["post"], url_path=r'user_detail',)
     def user_detail(self, request):
-        print('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', request.user)
         # query = request.GET.get('query', None)  # read extra data
         return Response(self.serializer_class(request.user).data,
                         status=status.HTTP_200_OK)
